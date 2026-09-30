@@ -115,11 +115,63 @@
 #    print("can withdraw")
 # else:
 #     print("invalid transaction")
-acqual vavuel for balance is 50000
-acqual valve for withdraw is 20000
-balance is equal to 50000
-withdraw is equal to 20000
-the final balance after withdrawal is 30000
-withdraw can only happen when, withdraw is less than the avialable ballance
-if the withdraw is higher than the  avialable balance withdraw will Fail
-the bollean result that the expresion roduce is true because the condision given to the program is true
+# acqual vavuel for balance is 50000
+# acqual valve for withdraw is 20000
+# balance is equal to 50000
+# withdraw is equal to 20000
+# the final balance after withdrawal is 30000
+# withdraw can only happen when, withdraw is less than the avialable ballance
+# if the withdraw is higher than the  avialable balance withdraw will Fail
+# the bollean result that the expresion roduce is true because the condision given to the program is true
+# product_name = "phone"
+# price = 100000
+# quantity = 10
+# sub_total = price * quantity
+# discount = 0.1 * price
+# if sub_total >= 100000:
+#     print(discount)
+#     discount = 0.05 * sub_total
+# if sub_total >= 50000:
+#     print(discount)
+#     total = sub_total - discount - discount
+#     print(total)
+# if sub_total <= 0:
+#     otherwise = 0
+#     print(otherwise)
+
+#practice....10
+ # Simple Store Discount Calculator
+
+# Ask the user for information
+product_name = input("Enter product name: ")
+price = float(input("Enter price: "))
+quantity = int(input("Enter quantity: "))
+
+# Calculate subtotal
+subtotal = price * quantity
+
+# Determine discount
+if subtotal >= 100000:
+    discount_rate = 0.10
+elif subtotal >= 50000:
+    discount_rate = 0.05
+else:
+    discount_rate = 0.00
+
+# Calculate discount amount
+discount = subtotal * discount_rate
+
+# Calculate final total
+total = subtotal - discount
+
+# Display receipt
+print("\n========== RECEIPT ==========")
+print(f"Product:  {product_name}")
+print(f"Price:    ₦{price:,.2f}")
+print(f"Quantity: {quantity}")
+print("-----------------------------")
+print(f"Subtotal: ₦{subtotal:,.2f}")
+print(f"Discount: ₦{discount:,.2f}")
+print(f"Total:    ₦{total:,.2f}")
+print("=============================")
+print("Thank you for shopping!")
