@@ -39,104 +39,233 @@
 
 # Learn2Earn Equipment Lending System..............
 
-inventory = {
-    1: {"name": "Laptop", "total": 10, "available": 10},
-    2: {"name": "keyboard", "total": 5, "available": 5},
-    3: {"name": "headset", "total": 3, "available": 3}
-}
+# inventory = {
+#     1: {"name": "Laptop", "total": 10, "available": 10},
+#     2: {"name": "keyboard", "total": 5, "available": 5},
+#     3: {"name": "headset", "total": 3, "available": 3}
+# }
 
-loans = []
-
-
-def view_inventory():
-    print("\n--- INVENTORY ---")
-    for id, item in inventory.items():
-        print(id, item["name"],
-              "| Total:", item["total"],
-              "| Available:", item["available"])
+# loans = []
 
 
-def issue_item():
-    view_inventory()
-    id = int(input("Enter equipment ID: "))
-    qty = int(input("Enter quantity: "))
-    borrower = input("Enter borrower name: ")
-
-    if id in inventory and qty > 0:
-        if qty <= inventory[id]["available"]:
-            inventory[id]["available"] -= qty
-            loans.append([id, borrower, qty])
-            print("Equipment issued successfully.")
-        else:
-            print("Not enough equipment available.")
-    else:
-        print("Invalid equipment or quantity.")
+# def view_inventory():
+#     print("\n--- INVENTORY ---")
+#     for id, item in inventory.items():
+#         print(id, item["name"],
+#               "| Total:", item["total"],
+#               "| Available:", item["available"])
 
 
-def return_item():
-    id = int(input("Enter equipment ID: "))
-    borrower = input("Enter borrower name: ")
-    qty = int(input("Enter quantity returned: "))
+# def issue_item():
+#     view_inventory()
+#     id = int(input("Enter equipment ID: "))
+#     qty = int(input("Enter quantity: "))
+#     borrower = input("Enter borrower name: ")
 
-    for loan in loans:
-        if loan[0] == id and loan[1].lower() == borrower.lower():
-            if qty <= loan[2]:
-                inventory[id]["available"] += qty
-                loan[2] -= qty
-
-                if loan[2] == 0:
-                    loans.remove(loan)
-
-                print("Equipment returned successfully.")
-                return
-
-    print("Loan record not found.")
+#     if id in inventory and qty > 0:
+#         if qty <= inventory[id]["available"]:
+#             inventory[id]["available"] -= qty
+#             loans.append([id, borrower, qty])
+#             print("Equipment issued successfully.")
+#         else:
+#             print("Not enough equipment available.")
+#     else:
+#         print("Invalid equipment or quantity.")
 
 
-def search_item():
-    search = input("Search equipment: ").lower()
+# def return_item():
+#     id = int(input("Enter equipment ID: "))
+#     borrower = input("Enter borrower name: ")
+#     qty = int(input("Enter quantity returned: "))
 
-    for id, item in inventory.items():
-        if search in item["name"].lower():
-            print(id, item["name"],
-                  "| Available:", item["available"])
+#     for loan in loans:
+#         if loan[0] == id and loan[1].lower() == borrower.lower():
+#             if qty <= loan[2]:
+#                 inventory[id]["available"] += qty
+#                 loan[2] -= qty
+
+#                 if loan[2] == 0:
+#                     loans.remove(loan)
+
+#                 print("Equipment returned successfully.")
+#                 return
+
+#     print("Loan record not found.")
 
 
-def report():
-    total = sum(item["total"] for item in inventory.values())
-    available = sum(item["available"] for item in inventory.values())
-    issued = total - available
+# def search_item():
+#     search = input("Search equipment: ").lower()
 
-    print("\n--- REPORT ---")
-    print("Total items:", total)
-    print("Available:", available)
-    print("Issued:", issued)
-    print("Active loans:", len(loans))
+#     for id, item in inventory.items():
+#         if search in item["name"].lower():
+#             print(id, item["name"],
+#                   "| Available:", item["available"])
 
 
-while True:
-    print("\n===== LEARN2EARN =====")
-    print("1. View Inventory")
-    print("2. Issue Equipment")
-    print("3. Return Equipment")
-    print("4. Search Inventory")
-    print("5. Report")
-    print("6. Exit")
+# def report():
+#     total = sum(item["total"] for item in inventory.values())
+#     available = sum(item["available"] for item in inventory.values())
+#     issued = total - available
 
-    choice = input("Choose an option: ")
+#     print("\n--- REPORT ---")
+#     print("Total items:", total)
+#     print("Available:", available)
+#     print("Issued:", issued)
+#     print("Active loans:", len(loans))
 
-    if choice == "1":
-        view_inventory()
-    elif choice == "2":
-        issue_item()
-    elif choice == "3":
-        return_item()
-    elif choice == "4":
-        search_item()
-    elif choice == "5":
-        report()
-    elif choice == "6":
-        print("Goodbye!")
-        break
-    else:
-        print("Invalid choice.")
+
+# while True:
+#     print("\n===== LEARN2EARN =====")
+#     print("1. View Inventory")
+#     print("2. Issue Equipment")
+#     print("3. Return Equipment")
+#     print("4. Search Inventory")
+#     print("5. Report")
+#     print("6. Exit")
+
+#     choice = input("Choose an option: ")
+
+#     if choice == "1":
+#         view_inventory()
+#     elif choice == "2":
+#         issue_item()
+#     elif choice == "3":
+#         return_item()
+#     elif choice == "4":
+#         search_item()
+#     elif choice == "5":
+#         report()
+#     elif choice == "6":
+#         print("Goodbye!")
+#         break
+#     else:
+#         print("Invalid choice.")
+
+
+
+# prices = [1000, -200, 3000, 0, 2500, -500]...........answ1
+# for outer in range(1, 4):
+#     for inner in range(1, 4):
+#         print(outer, inner)
+# prices = [1000, -200, 3000, 0, 2500, -500]..........answ2
+# for outer in range(1, 8):
+#     for inner in range(1, 9):
+#          print(outer, inner
+# Use for when:...................note
+# You know what you're iterating over or roughly how many repetitions you need.
+
+# Examples:
+
+# for number in range(10):
+# for price in prices:
+# for letter in name:
+# Use while when:
+# You want to continue based on a condition.
+
+# Example:
+
+# while balance > 0:
+# or:
+
+# while choice != "quit":
+# 🧠 SIMPLE RULE
+# Remember:
+
+# FOR
+# → repeat through a sequence/range
+# WHILE
+# → repeat while a condition is true
+
+# for number in range(1, 5):.............3
+# count = 1
+
+# while count <= 5:...................4
+#     print(count)
+#     count += 1
+# for number in range(1, 6):
+#     if number == 3:
+#         break
+
+#     print(number)
+
+# #print("Finished")
+# total = 0........................6
+
+# for price in [1000, 2000, 3000]:
+#     total += price
+
+# print(total)
+# total = 0
+
+# for price in [1000, 2000, 3000]:
+#     total = price
+
+# print(total)
+
+# total = 10
+
+# for number in range(1, 4):
+#     total += number * 2
+
+# print(total)
+
+# total = 5
+
+# for number in range(1, 5):
+#     total += number * 3
+
+# print(total)
+#balance = 0...................8
+# for deposit in (10000, 5000, 15000, 7000):
+#     balance += deposit
+#     print(balance)
+# subtotal = 0........................9
+# prices = [2000, 3500, 1500, 5000]
+
+# for price in prices:
+#       subtotal += price
+
+# discount = subtotal * 0.1
+# total = subtotal - discount
+
+# print(f"Subtotal: {subtotal}")
+# print(f"Discount: {discount}")
+# print(f"Total: {total}")
+
+
+# subtotal = 0.....................10
+# prices = [2000, 3500, 1500, 5000]
+
+# for price in prices:
+#     subtotal += price
+
+# discount = subtotal * 0.1
+# total = subtotal - discount
+
+# print(f"Subtotal: {subtotal}")
+# print(f"Discount: {discount}")
+# print(f"Total: {total}")
+
+prices = [2500, 4000, 1500, 3000, 5000]
+
+subtotal = 0
+product_count = 0
+
+for price in prices:
+    subtotal += price
+    product_count += 1
+
+if subtotal >= 15000:
+    discount_rate = 0.10
+elif subtotal >= 10000:
+    discount_rate = 0.05
+else:
+    discount_rate = 0.00
+
+discount = subtotal * discount_rate
+final_total = subtotal - discount
+
+print(f"Products: {product_count}")
+print(f"Subtotal: ₦{subtotal:,}")
+print(f"Discount: ₦{discount:,}")
+print(f"Final Total: ₦{final_total:,}")
